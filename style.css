@@ -166,10 +166,10 @@ header h2 {
 
 .box {
   width: 250px;
-  height: 390px;
+  height: 420px;
   box-shadow: var(--Box-Shadow);
   border-radius: 5px;
-  margin: 40px 0;
+  margin: 40px 15px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -323,5 +323,14 @@ header h2 {
   }
   .view-text-container {
     width: 90%;
+  }
+  .box {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 475px) {
+  .box {
+    width: 85%;
+    margin: 40px 0;
   }
 }

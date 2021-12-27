@@ -9,6 +9,7 @@ const dropDown = document.querySelector("#myDropdown");
 const mainContainer = document.querySelector(".main-container");
 const searchFilterContainer = document.querySelector(".search-filter");
 const viewSection = document.querySelector(".view-section");
+const input = document.querySelector(".search");
 
 dark.addEventListener("click", () => {
   body.classList.add("body-dark");
@@ -42,7 +43,6 @@ const getSpecificCountries = async (name) => {
   try {
     const resp = await url;
     const data = await resp.json();
-    console.log(data);
     const specificCountries = data.map((items) => {
       const name = items.name.common;
       const nativeName = items.name.nativeName;
@@ -51,7 +51,6 @@ const getSpecificCountries = async (name) => {
           const hello = nativeName[property];
           for (const key in hello) {
             const element = hello[key];
-            console.log(element);
             return element;
           }
         }
@@ -72,9 +71,10 @@ const getSpecificCountries = async (name) => {
       const languages = items.languages;
       function getAllLanguages() {
         for (const property in languages) {
-          console.log(`${languages[property]}`);
+          return `${languages[property]}`;
         }
       }
+      getAllLanguages();
       let results = "";
       results += ` <div class="view-img-container">
       <button class="back"><i class="fas fa-arrow-left"></i>Back</button>
@@ -140,7 +140,7 @@ const getCountries = async () => {
         />
       </div>
       <div class="text-box">
-        <h1>${name}</h1>
+        <h1 class="nameFilter" >${name}</h1>
         <p><span>Population:</span> ${population}</p>
         <p><span>Region:</span> ${region}</p>
         <p><span>Capital:</span> ${capital}</p>
@@ -162,6 +162,19 @@ const getCountries = async () => {
       });
     };
     viewMoreInfo();
+    input.addEventListener("keyup", () => {
+      let filterValue = input.value.toUpperCase();
+      let box = document.querySelectorAll(".box");
+      for (let i = 0; i < box.length; i++) {
+        let element =
+          box[i].firstElementChild.nextElementSibling.firstElementChild;
+        if (element.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+          box[i].style.display = "";
+        } else {
+          box[i].style.display = "none";
+        }
+      }
+    });
     return countries;
   } catch (error) {
     console.log("error");
