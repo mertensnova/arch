@@ -137,7 +137,6 @@ const getCountries = async () => {
   try {
     const resp = await url;
     const data = await resp.json();
-
     const countries = data.map((items) => {
       const name = items.name;
       const flag = items.flags.png;
