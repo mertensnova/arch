@@ -119,8 +119,20 @@ const getSpecificCountries = async (name) => {
     console.log("error");
   }
 };
+const ldsRing = document.querySelector(".lds-ring");
+function displayLoading() {
+  setTimeout(() => {
+    ldsRing.style.display = "none";
+  }, 5000);
+}
+
+function hideLoading() {
+  const ldsRing = document.querySelector(".lds-ring");
+  ldsRing.style.display = "none";
+}
 
 const getCountries = async () => {
+  displayLoading();
   const url = fetch(`https://restcountries.com/v2/all`);
   try {
     const resp = await url;
@@ -147,6 +159,7 @@ const getCountries = async () => {
         <p><span>Capital:</span> ${capital}</p>
       </div>
     </div>`;
+      hideLoading();
       mainContainer.innerHTML += results;
     });
     const imageBox = [...document.querySelectorAll(".img-box")];
@@ -203,4 +216,6 @@ const getCountries = async () => {
   }
 };
 
-getCountries();
+window.addEventListener("DOMContentLoaded", () => {
+  getCountries();
+});
