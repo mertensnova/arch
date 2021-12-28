@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REST Country API</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/external-tulpahn-flat-tulpahn/2x/external-earth-space-tulpahn-flat-tulpahn.png"
+      type="image/x-icon"
+    />
     <script
       src="https://kit.fontawesome.com/0bcb27dbb4.js"
       crossorigin="anonymous"
@@ -31,11 +36,12 @@
         </button>
         <div id="myDropdown" class="dropdown-content">
           <ul>
-            <li>Africa</li>
-            <li>Asia</li>
-            <li>Europe</li>
-            <li>America</li>
-            <li>Oceania</li>
+            <li data-filter="all" class="filter">All</li>
+            <li data-filter="africa" class="filter">Africa</li>
+            <li data-filter="asia" class="filter">Asia</li>
+            <li data-filter="europe" class="filter">Europe</li>
+            <li data-filter="americas" class="filter">Americas</li>
+            <li data-filter="oceania" class="filter">Oceania</li>
           </ul>
         </div>
       </div>

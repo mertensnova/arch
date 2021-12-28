@@ -253,18 +253,19 @@ header h2 {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 40px 0;
-  font-size: 24px;
+  font-size: 30px;
 }
 .second-first-text {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .second-first-text p {
   margin: 10px 0;
+  font-size: 18px;
 }
 .second-first-text span {
   font-weight: 600;

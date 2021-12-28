@@ -125,9 +125,10 @@ const getCountries = async () => {
   try {
     const resp = await url;
     const data = await resp.json();
+
     const countries = data.map((items) => {
       const name = items.name;
-      const flag = items.flags.svg;
+      const flag = items.flags.png;
       const population = items.population.toLocaleString();
       const region = items.region;
       const capital = items.capital;
@@ -140,7 +141,7 @@ const getCountries = async () => {
         />
       </div>
       <div class="text-box">
-        <h1 class="nameFilter" >${name}</h1>
+        <h1>${name}</h1>
         <p><span>Population:</span> ${population}</p>
         <p><span>Region:</span> ${region}</p>
         <p><span>Capital:</span> ${capital}</p>
@@ -162,9 +163,30 @@ const getCountries = async () => {
       });
     };
     viewMoreInfo();
+    const filterBtns = document.querySelectorAll(".filter");
+    const box = document.querySelectorAll(".box");
+
+    filterBtns.forEach((buttons) => {
+      buttons.addEventListener("click", (e) => {
+        const filters = e.target.dataset.filter;
+        box.forEach((product) => {
+          let element =
+            product.firstElementChild.nextElementSibling.firstElementChild
+              .nextElementSibling.nextElementSibling.textContent;
+          if (filters.toLowerCase() == "all") {
+            product.style.display = "flex";
+          } else {
+            if (element.toLowerCase() == `region: ${filters.toLowerCase()}`) {
+              product.style.display = "flex";
+            } else {
+              product.style.display = "none";
+            }
+          }
+        });
+      });
+    });
     input.addEventListener("keyup", () => {
       let filterValue = input.value.toUpperCase();
-      let box = document.querySelectorAll(".box");
       for (let i = 0; i < box.length; i++) {
         let element =
           box[i].firstElementChild.nextElementSibling.firstElementChild;
