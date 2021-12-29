@@ -39,7 +39,8 @@ window.addEventListener("click", (event) => {
   }
 });
 const getSpecificCountries = async (name) => {
-  const url = fetch(`https://restcountries.com/v3.1/name/${name}`);
+  const url = fetch(`
+  https://restcountries.com/v3.1/name/${name}?fullText=true`);
   try {
     const resp = await url;
     const data = await resp.json();
@@ -133,12 +134,12 @@ function hideLoading() {
 
 const getCountries = async () => {
   displayLoading();
-  const url = fetch(`https://restcountries.com/v2/all`);
+  const url = fetch(`https://restcountries.com/v3.1/all`);
   try {
     const resp = await url;
     const data = await resp.json();
     const countries = data.map((items) => {
-      const name = items.name;
+      const name = items.name.common;
       const flag = items.flags.png;
       const population = items.population.toLocaleString();
       const region = items.region;
