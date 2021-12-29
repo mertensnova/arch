@@ -44,6 +44,7 @@ const getSpecificCountries = async (name) => {
   try {
     const resp = await url;
     const data = await resp.json();
+    console.log(data);
     const specificCountries = data.map((items) => {
       const name = items.name.common;
       const nativeName = items.name.nativeName;
@@ -70,12 +71,10 @@ const getSpecificCountries = async (name) => {
         }
       }
       const languages = items.languages;
-      function getAllLanguages() {
-        for (const property in languages) {
-          return `${languages[property]}`;
-        }
+      let txt = "";
+      for (const property in languages) {
+        txt += languages[property] + " ";
       }
-      getAllLanguages();
       let results = "";
       results += ` <div class="view-img-container">
       <button class="back"><i class="fas fa-arrow-left"></i>Back</button>
@@ -87,7 +86,7 @@ const getSpecificCountries = async (name) => {
 
     <div class="view-text-container">
       <div class="title">
-        <h1>${name}</h1>
+        <h2>${name}</h2>
       </div>
 
       <div class="second-first-text">
@@ -102,7 +101,7 @@ const getSpecificCountries = async (name) => {
         <div class="second">
           <p><span>Top Level Domain:</span> ${topLevelDomain}</p>
           <p><span>Currenices:</span> ${getCurrency()}</p>
-          <p><span>Languages:</span> ${getAllLanguages()}</p>
+          <p><span>Languages:</span> ${txt}</p>
         </div>
       </div>
     </div>`;
@@ -153,7 +152,7 @@ const getCountries = async () => {
         />
       </div>
       <div class="text-box">
-        <h1>${name}</h1>
+        <h2>${name}</h2>
         <p><span>Population:</span> ${population}</p>
         <p><span>Region:</span> ${region}</p>
         <p><span>Capital:</span> ${capital}</p>
