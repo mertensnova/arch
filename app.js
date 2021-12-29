@@ -64,6 +64,18 @@ const getSpecificCountries = async (name) => {
       const capital = items.capital;
       const topLevelDomain = items.tld[0];
       const currency = items.currencies;
+      const borders = items.borders;
+
+      let txtBorder = "";
+      if (borders == null) {
+        txtBorder += `<p class="no-border"> ${name} has no borders </p>`;
+      } else {
+        for (let i = 0; i < borders.length; i++) {
+          const element = borders[i];
+          txtBorder += `<button class="contain"> ${element} </button>`;
+        }
+      }
+
       function getCurrency() {
         for (const property in currency) {
           const hello = currency[property].name;
@@ -96,6 +108,7 @@ const getSpecificCountries = async (name) => {
           <p><span>Region:</span> ${region}</p>
           <p><span>Sub Region:</span> ${subRegion}</p>
           <p><span>Capital:</span> ${capital}</p>
+          <div class="border"><p class="borders-txt">Borders: </p> ${txtBorder} </div> 
         </div>
 
         <div class="second">
