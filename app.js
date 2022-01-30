@@ -44,7 +44,6 @@ const getSpecificCountries = async (name) => {
   try {
     const resp = await url;
     const data = await resp.json();
-    console.log(data);
     const specificCountries = data.map((items) => {
       const name = items.name.common;
       const nativeName = items.name.nativeName;
@@ -210,6 +209,7 @@ const getCountries = async () => {
         });
       });
     });
+
     input.addEventListener("keyup", () => {
       let filterValue = input.value.toUpperCase();
       for (let i = 0; i < box.length; i++) {
