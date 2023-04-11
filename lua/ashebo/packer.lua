@@ -9,14 +9,22 @@ return require('packer').startup(function(use)
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
+use ({ "catppuccin/nvim", as = "catppuccin",
+config=function()
+    vim.cmd("colorscheme catppuccin-mocha")
+end })
 
-    use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
+use( {
+  "NvChad/nvterm",
+  config = function ()
+    require("nvterm").setup()
+  end,
+})
+
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 
   use({
       "folke/trouble.nvim",
@@ -27,17 +35,9 @@ return require('packer').startup(function(use)
       end
   })
 
- -- use {
-  --'nvim-tree/nvim-tree.lua',
-  --requires = {
-    --'nvim-tree/nvim-web-devicons',
-  --},
 
-  --config = function()
-    --require("nvim-tree").setup {}
-  --end
-  
- -- use ("EdenEast/nightfox.nvim") -- Packer
+    
+
   use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
   use("nvim-treesitter/playground")
   use("theprimeagen/harpoon")
@@ -45,8 +45,19 @@ return require('packer').startup(function(use)
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
   use("nvim-treesitter/nvim-treesitter-context")
---  use('ThePrimeagen/vim-be-good')  
 
+  -- LSP & cmp
+  use('neovim/nvim-lspconfig')
+  use('hrsh7th/cmp-nvim-lsp')
+  use('hrsh7th/cmp-buffer')
+  use('hrsh7th/cmp-path')
+  use('hrsh7th/cmp-cmdline')
+  use('hrsh7th/nvim-cmp')
+  use('hrsh7th/vim-vsnip')
+  use('hrsh7th/cmp-vsnip')
+   use('hrsh7th/vim-vsnip-integ')
+
+ use('ThePrimeagen/vim-be-good') 
   use {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
