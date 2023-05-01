@@ -45,6 +45,7 @@ use( {
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
   use("nvim-treesitter/nvim-treesitter-context")
+  use("xiyaowong/transparent.nvim")
 
   -- LSP & cmp
   use('neovim/nvim-lspconfig')
