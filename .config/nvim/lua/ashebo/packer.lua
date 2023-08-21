@@ -6,27 +6,33 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
 
+  -- Themses
+ -- use 'haishanh/night-owl.vim'
+
+ -- use ({ "catppuccin/nvim", as = "catppuccin",
+   --     config=function()
+     --   vim.cmd("colorscheme catppuccin-mocha")
+    -- end })
+
+  use({
+	  'rose-pine/neovim',
+	  as = 'rose-pine',
+	  config = function()
+		  vim.cmd('colorscheme rose-pine')
+	  end
+  })
+
+
+
   use {
-      'christoomey/vim-tmux-navigator',
-      lazy=false
-  }
+    'christoomey/vim-tmux-navigator',
+    lazy = false
+}
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-use ({ "catppuccin/nvim", as = "catppuccin",
-config=function()
-    vim.cmd("colorscheme catppuccin-mocha")
-end })
-
-use( {
-  "NvChad/nvterm",
-  config = function ()
-    require("nvterm").setup()
-  end,
-})
-
   use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -41,7 +47,6 @@ use( {
       end
   })
 
-
     
 
   use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
@@ -51,25 +56,9 @@ use( {
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
   use("nvim-treesitter/nvim-treesitter-context")
-  use("xiyaowong/transparent.nvim")
-
-  -- LSP & cmp
-  use('neovim/nvim-lspconfig')
-  use('hrsh7th/cmp-nvim-lsp')
-  use('hrsh7th/cmp-buffer')
-  use('hrsh7th/cmp-path')
-  use('hrsh7th/cmp-cmdline')
-  use('hrsh7th/nvim-cmp')
-  use('hrsh7th/vim-vsnip')
-  use('hrsh7th/cmp-vsnip')
-   use('hrsh7th/vim-vsnip-integ')
 
  use('ThePrimeagen/vim-be-good') 
-  use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-    }
-  use {
+ use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {
@@ -92,5 +81,9 @@ use( {
 	  }
   }
 
-end)
+  use("folke/zen-mode.nvim")
+  use("github/copilot.vim")
+  use("eandrju/cellular-automaton.nvim")
+  use("laytan/cloak.nvim")
 
+  end)

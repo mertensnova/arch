@@ -1,11 +1,3 @@
-# Set the GPG_TTY to be the same as the TTY, either via the env var
-# or via the tty command.
-if [ -n "$TTY" ]; then
-  export GPG_TTY=$(tty)
-else
-  export GPG_TTY="$TTY"
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -30,8 +22,6 @@ zinit light ohmyzsh/ohmyzsh
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::command-not-found
-
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
@@ -39,11 +29,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Completions
-
-source <(doctl completion zsh)
-
-source <(kubectl completion zsh)
 
 # P10k customizations
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
