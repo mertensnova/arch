@@ -1,83 +1,109 @@
 #!/bin/bash
+install_dev_env(){
 
-# Installing Git
-echo "Installing Git"
-sudo pacman -S git
+    #Installing tmux
+    echo "Installing tmux"
+    sudo pacman -Sy tmux
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-echo "Installing Yay"
-sudo git clone https://aur.archlinux.org/yay-git.git
-cd yay-git
-makepkg -si
-cd
+    # Installing Neovim & Neofetch
+    echo "Installing Neovim & Neofetch"
+    sudo pacman -S neovim
 
-echo "Installing SNap"
-git clone https://aur.archlinux.org/snapd.git
-cd snapd
-makepkg -si
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-cd
-sudo mv snapd \opt
-cd
+    echo "zsh"
+    sudo pacman -S zsh
+    chsh -s $(which zsh)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-#Installing tmux
-echo "Installing tmux"
-sudo pacman -Sy tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
 
-# Installing Neovim & Neofetch
-echo "Installing Neovim & Neofetch"
-sudo pacman -S neovim
-sudo pacman -S neofetch
-#Installing Golang
-echo "Installing Golang"
-sudo pacman -S go
+install_essentials(){
 
-echo "Installig VS CODE"
-# sudo pacman -S code
-sudo snap install code --classic
+    sudo pacman -S neofetch
 
-#Installing C/C++ complier
-echo "Installing GCC"
-sudo pacman -S gcc
+    #Installing esstianls 
+    sudo pacman -Syu base-devel
 
-echo "Installing Rust"
-sudo pacman -S rustup
-rustup install stable
-source ~/.cargo/env
+    # Installing Autoconf
+    sudo pacman -S autoconf
 
-# Installing Node
-echo "Installing Node "
-sudo pacman -S nodejs
+    # Installing Git
+    echo "Installing Git"
+    sudo pacman -S git
 
-#Installing Nginx
-echo "Installing Nginx"
-sudo pacman -S nginx-mainline
+    echo "Installing Yay"
+    sudo cd /opt
+    sudo git clone https://aur.archlinux.org/yay-git.git
+    cd yay-git
+    makepkg -si
+    cd
+}
 
-# Installing docker	
-echo "Installing Docker"
-sudo pacman -S docker
+install_programming_lan(){
 
-# Installing browsers
-echo "Installing browsers"
-yay -S google-chrome
-yay -S brave-bin
+    #Installing Golang
+    echo "Installing Golang"
+    sudo pacman -S go
 
-echo "Install i3"
-sudo pacman -S i3
+    #Installing C/C++ complier
+    echo "Installing GCC"
+    sudo pacman -S gcc
 
-echo "Installing Notes"
-yay -S obsidian
-git clone https://github.com/amr8644/notes.git
+    echo "Installing Rust"
+    sudo pacman -S rustup
+    rustup install stable
+    source ~/.cargo/env
+
+    # Installing Node
+    echo "Installing Node "
+    sudo pacman -S nodejs
+}
+
+install_utils(){
+    # Installing browsers
+    echo "Installing browser"
+    yay -S brave-bin
+
+    # Installing Window manager
+    echo "Install i3"
+    sudo pacman -S i3
+
+    echo "Installing Notes"
+    yay -S obsidian
+    git clone https://github.com/amr8644/notes.git
+
+    #Installing Nginx
+    echo "Installing Nginx"
+    sudo pacman -S nginx-mainline
+
+    # Installing docker	
+    echo "Installing Docker"
+    sudo pacman -S docker
 
 
-echo "Installing Designs"
-sudo pacman -S gnome-shell-extensions
-sudo pacman -S gnome-tweaks
+    sudo pacman -S ufw
+    sudo pacman -S openvpn
+}
 
-cd Downloads
-git clone https://aur.archlinux.org/gnome-browser-connector.git
-cd gnome-browser-connector
-makepkg -si
-cd
+install_vpn(){
 
+    yay -S protonvpn  
+    sudo pacman -Syu libappindicator-gtk3 gnome-shell-extension-appindicator
+
+}
+
+install_essentials()
+install_utils()
+install_programming_lan()
+install_dev_env()
+
+
+
+git clone https://github.com/amr8644/.dotfiles.git
+
+mv .dotfiles/* .
+rm -r .dotfiles
+
+
+reboot
