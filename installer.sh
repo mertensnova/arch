@@ -9,12 +9,13 @@ install_dev_env(){
     # Installing Neovim & Neofetch
     echo "Installing Neovim & Neofetch"
     sudo pacman -S neovim
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
     echo "zsh"
     sudo pacman -S zsh
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 }
 
@@ -33,7 +34,7 @@ install_essentials(){
     sudo pacman -S git
 
     echo "Installing Yay"
-    sudo cd /opt
+    cd Downloads
     sudo git clone https://aur.archlinux.org/yay-git.git
     cd yay-git
     makepkg -si
@@ -71,7 +72,6 @@ install_utils(){
 
     echo "Installing Notes"
     yay -S obsidian
-    git clone https://github.com/amr8644/notes.git
 
     #Installing Nginx
     echo "Installing Nginx"
@@ -81,9 +81,10 @@ install_utils(){
     echo "Installing Docker"
     sudo pacman -S docker
 
-
     sudo pacman -S ufw
     sudo pacman -S openvpn
+
+    sudo pacman -S htop
 }
 
 install_vpn(){
@@ -93,17 +94,10 @@ install_vpn(){
 
 }
 
-install_essentials()
-install_utils()
-install_programming_lan()
-install_dev_env()
-
-
-
-git clone https://github.com/amr8644/.dotfiles.git
-
-mv .dotfiles/* .
-rm -r .dotfiles
-
+install_essentials
+install_utils
+install_programming_lan
+install_dev_env
+install_vpn
 
 reboot
