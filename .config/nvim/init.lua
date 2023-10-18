@@ -1,2 +1,3 @@
 require("ashebo")
-vim.cmd("colorscheme night-owl")
+
+vim.cmd[[colorscheme tokyonight-night]]

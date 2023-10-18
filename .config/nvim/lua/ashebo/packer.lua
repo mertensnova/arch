@@ -5,17 +5,13 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+-- Themses
+--use 'frenzyexists/aquarium-vim'
+--use 'haishanh/night-owl.vim'
+--use {'decaycs/decay.nvim', as = 'decay'}
 
-  -- Themses
- use 'haishanh/night-owl.vim'
-
-
-
- -- use ({ "catppuccin/nvim", as = "catppuccin",
-   --     config=function()
-     --   vim.cmd("colorscheme catppuccin-mocha")
-    -- end })
-
+use {"folke/tokyonight.nvim",}
+use 'nvim-tree/nvim-web-devicons'
 
   use {
     'christoomey/vim-tmux-navigator',

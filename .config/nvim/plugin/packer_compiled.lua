@@ -149,11 +149,6 @@ _G.packer_plugins = {
     path = "/home/amr8644/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["night-owl.vim"] = {
-    loaded = true,
-    path = "/home/amr8644/.local/share/nvim/site/pack/packer/start/night-owl.vim",
-    url = "https://github.com/haishanh/night-owl.vim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/amr8644/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -175,9 +170,8 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/amr8644/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/home/amr8644/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
@@ -204,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/amr8644/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/amr8644/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     config = { "\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },

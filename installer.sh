@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 install_dev_env(){
 
     #Installing tmux
@@ -20,7 +22,6 @@ install_dev_env(){
 }
 
 install_essentials(){
-
     sudo pacman -S neofetch
 
     #Installing esstianls 
@@ -51,11 +52,6 @@ install_programming_lan(){
     echo "Installing GCC"
     sudo pacman -S gcc
 
-    echo "Installing Rust"
-    sudo pacman -S rustup
-    rustup install stable
-    source ~/.cargo/env
-
     # Installing Node
     echo "Installing Node "
     sudo pacman -S nodejs
@@ -83,21 +79,35 @@ install_utils(){
 
     sudo pacman -S ufw
     sudo pacman -S openvpn
-
     sudo pacman -S htop
+
 }
 
 install_vpn(){
 
-    yay -S protonvpn  
-    sudo pacman -Syu libappindicator-gtk3 gnome-shell-extension-appindicator
+}
 
+rice(){
+
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
+    unzip JetBrainsMono.zip
+    sudo mv JetBrainsMono /usr/share/fonts
+  
+
+    sudo echo FONT=JetBrainsMonoNerdFont-Bold 12 >> /etc/locale.conf
+    sudo fc-cache -fv
+
+    yay -S picom-git
+
+    sudo pacman -S alacritty
+    export TERMINAL=alacritty
 }
 
 install_essentials
 install_utils
 install_programming_lan
 install_dev_env
-install_vpn
+#rice()
+#install_vpn
 
 reboot
