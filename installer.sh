@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 install_dev_env(){
 
     #Installing tmux
@@ -81,13 +80,14 @@ install_utils(){
     sudo pacman -S openvpn
     sudo pacman -S htop
 
+    sudo pacman -S dmenu
 }
 
 install_vpn(){
 
 }
 
-rice(){
+rice() {
 
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
     unzip JetBrainsMono.zip
@@ -103,10 +103,21 @@ rice(){
     export TERMINAL=alacritty
 }
 
+
+link() {
+    ln -s ~/.dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+    ln -s ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+    ln -s ~/.dotfiles/.config/i3/config ~/.config/i3/config
+    ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
+    ln -s ~/.dotfiles/.config/tmux ~/.config/tmux
+    ln -s ~/.dotfiles/.zshrc ~/.zshrc
+    ln -s ~/.dotfiles/.vimrc ~/.vimrc
+}
 install_essentials
 install_utils
 install_programming_lan
 install_dev_env
+link
 #rice()
 #install_vpn
 
