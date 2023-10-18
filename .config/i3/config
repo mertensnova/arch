@@ -108,8 +108,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -188,10 +186,29 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  status_command i3status
-}
+#bar {
+ # status_command i3status
+#}
 
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+exec_always ./.config/polybar/l.sh
+
+smart_borders on
+default_border pixel
+
+gaps inner 10
+gaps outer 2
+
+
+exec_always setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
 bindsym $mod+m fullscreen disable
 bindsym $mod+n fullscreen enable

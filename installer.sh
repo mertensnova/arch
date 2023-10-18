@@ -112,6 +112,10 @@ link() {
     ln -s ~/.dotfiles/.config/tmux ~/.config/tmux
     ln -s ~/.dotfiles/.zshrc ~/.zshrc
     ln -s ~/.dotfiles/.vimrc ~/.vimrc
+    
+    ln -s ~/.dotfiles/.config/polybar/config.ini ~/.config/polybar/config.ini
+    ln -s ~/.dotfiles/.config/polybar/l.sh ~/.config/polybar/l.sh
+
 }
 install_essentials
 install_utils
