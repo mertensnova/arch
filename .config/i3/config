@@ -204,8 +204,8 @@ exec_always ./.config/polybar/l.sh
 smart_borders on
 default_border pixel
 
-gaps inner 10
-gaps outer 2
+gaps inner 5
+gaps outer 1
 
 
 exec_always setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
@@ -217,7 +217,8 @@ assign [class="alacritty"] $ws1
 assign [class="firefox"] $ws2
 assign [class="obsidian"] $ws2
 
-exec_always feh --bg-scale /home/amr8644/Pictures/wall.jpg
+exec_always feh --bg-scale /home/amr8644/Pictures/gruv.jpg
+exec_always picom -b --config ~/.config/picom/picom.conf
 exec redshift -O 3500
 exec firefox
 exec alacritty

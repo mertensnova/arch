@@ -1,94 +1,48 @@
 #!/bin/bash
 
-install_dev_env(){
 
-    #Installing tmux
-    echo "Installing tmux"
-    sudo pacman -Sy tmux
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-    # Installing Neovim & Neofetch
-    echo "Installing Neovim & Neofetch"
-    sudo pacman -S neovim
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+sudo pacman -Syu
+sudo pacman -S cowsay
 
-    echo "zsh"
-    sudo pacman -S zsh
-    chsh -s $(which zsh)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Dev enviroment
+echo "Installing Dev enviroment" | cowsay 
+sudo pacman -S tmux neovim  zsh neofetch
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-}
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-install_essentials(){
-    sudo pacman -S neofetch
 
-    #Installing esstianls 
-    sudo pacman -Syu base-devel
+echo "Installing libs" | cowsay 
+# Libs
+sudo pacman -S base-devel autoconf git
+cd Downloads
+git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg -si
+cd
 
-    # Installing Autoconf
-    sudo pacman -S autoconf
+echo "Installing .dotfiles" | cowsay 
+# Dotfiles
+git clone https://github.com/amr8644/.dotfiles.git
 
-    # Installing Git
-    echo "Installing Git"
-    sudo pacman -S git
 
-    echo "Installing Yay"
-    cd Downloads
-    sudo git clone https://aur.archlinux.org/yay-git.git
-    cd yay-git
-    makepkg -si
-    cd
-}
+echo "Installing programming languages" | cowsay 
+# Programming Languages
+sudo pacman -S go gcc nodejs
 
-install_programming_lan(){
 
-    #Installing Golang
-    echo "Installing Golang"
-    sudo pacman -S go
 
-    #Installing C/C++ complier
-    echo "Installing GCC"
-    sudo pacman -S gcc
-
-    # Installing Node
-    echo "Installing Node "
-    sudo pacman -S nodejs
-}
-
-install_utils(){
-    # Installing browsers
-    echo "Installing browser"
-    yay -S brave-bin
-
-    # Installing Window manager
-    echo "Install i3"
-    sudo pacman -S i3
-
-    echo "Installing Notes"
-    yay -S obsidian
-
-    #Installing Nginx
-    echo "Installing Nginx"
-    sudo pacman -S nginx-mainline
-
-    # Installing docker	
-    echo "Installing Docker"
-    sudo pacman -S docker
-
-    sudo pacman -S ufw
-    sudo pacman -S openvpn
-    sudo pacman -S htop
-
-    sudo pacman -S dmenu
-}
-
-install_vpn(){
-
-}
+echo "Installing utils" | cowsay 
+# Utils
+yay -S brave-bin obsidian
+sudo pacman -S nginx-mainline docker ufw openvpn htop dmenu i3
 
 rice() {
 
+    echo "Installing fonts" | cowsay 
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
     unzip JetBrainsMono.zip
     sudo mv JetBrainsMono /usr/share/fonts
@@ -97,32 +51,39 @@ rice() {
     sudo echo FONT=JetBrainsMonoNerdFont-Bold 12 >> /etc/locale.conf
     sudo fc-cache -fv
 
+    echo "Installing picom and teriminal" | cowsay 
     yay -S picom-git
 
     sudo pacman -S alacritty
     export TERMINAL=alacritty
-}
 
-
-link() {
-    ln -s ~/.dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
-    ln -s ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-    ln -s ~/.dotfiles/.config/i3/config ~/.config/i3/config
-    ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
-    ln -s ~/.dotfiles/.config/tmux ~/.config/tmux
-    ln -s ~/.dotfiles/.zshrc ~/.zshrc
-    ln -s ~/.dotfiles/.vimrc ~/.vimrc
-    
     ln -s ~/.dotfiles/.config/polybar/config.ini ~/.config/polybar/config.ini
     ln -s ~/.dotfiles/.config/polybar/l.sh ~/.config/polybar/l.sh
-
+    ln -s ~/.dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+    ln -s ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
-install_essentials
-install_utils
-install_programming_lan
-install_dev_env
-link
-#rice()
-#install_vpn
+
+
+
+
+echo "Creating system links" | cowsay
+ln -s ~/.dotfiles/.config/i3/config ~/.config/i3/config
+ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
+ln -s ~/.dotfiles/.config/tmux ~/.config/tmux
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
+
+
+#!/bin/bash
+
+echo "Do you want to rice? [y/n]"
+read ans
+echo "$ans" 
+
+if [[ "$ans" == "yes" || "$ans" == "y" ]]; then
+    rice
+else
+  echo "sure"  
+fi
 
 reboot
