@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 sudo pacman -Syu
 sudo pacman -S cowsay
 
@@ -37,9 +35,9 @@ sudo pacman -S go gcc nodejs
 
 echo "Installing utils" | cowsay 
 # Utils
-yay -S brave-bin obsidian
-sudo pacman -S nginx-mainline docker ufw openvpn htop dmenu i3
+sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop dmenu i3 fzf
 
+yay -S brave-bin obsidian
 rice() {
 
     echo "Installing fonts" | cowsay 
@@ -73,8 +71,6 @@ ln -s ~/.dotfiles/.config/tmux ~/.config/tmux
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
-
-#!/bin/bash
 
 echo "Do you want to rice? [y/n]"
 read ans
