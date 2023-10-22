@@ -37,7 +37,8 @@ echo "Installing utils" | cowsay
 # Utils
 sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop dmenu i3 fzf
 
-yay -S brave-bin obsidian
+yay -S brave-bin obsidian betterlockscreen
+
 rice() {
 
     echo "Installing fonts" | cowsay 
