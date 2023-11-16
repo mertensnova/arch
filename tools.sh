@@ -11,5 +11,5 @@ sudo pacman -S metasploit
 
 # Installing Nmap
 echo "Installing Nmap..."
-sudo pacman -S nmap
+sudo pacman -S nmap net-tools
 

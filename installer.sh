@@ -2,6 +2,7 @@
 
 sudo pacman -Syu
 sudo pacman -S cowsay
+sudo pacman -S wget
 
 # Dev enviroment
 echo "Installing Dev enviroment" | cowsay 
@@ -32,11 +33,9 @@ echo "Installing programming languages" | cowsay
 sudo pacman -S go gcc nodejs
 
 
-
 echo "Installing utils" | cowsay 
 # Utils
 sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop dmenu i3 fzf
-
 yay -S brave-bin obsidian betterlockscreen
 
 rice() {
