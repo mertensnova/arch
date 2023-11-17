@@ -17,26 +17,23 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "Installing libs" | cowsay 
 # Libs
 sudo pacman -S base-devel autoconf git
+cd
 cd Downloads
 git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
 makepkg -si
 cd
 
-echo "Installing .dotfiles" | cowsay 
-# Dotfiles
-git clone https://github.com/amr8644/.dotfiles.git
-
 
 echo "Installing programming languages" | cowsay 
 # Programming Languages
 sudo pacman -S go gcc nodejs
 
-
 echo "Installing utils" | cowsay 
 # Utils
-sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop dmenu i3 fzf
-yay -S brave-bin obsidian betterlockscreen
+sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop dmenu i3 fzf 
+yay -S obsidian betterlockscreen
+yay -S wireguard-arch wireguard-tools
 
 rice() {
 
@@ -54,22 +51,9 @@ rice() {
 
     sudo pacman -S alacritty
     export TERMINAL=alacritty
-
-    ln -s ~/.dotfiles/.config/polybar/config.ini ~/.config/polybar/config.ini
-    ln -s ~/.dotfiles/.config/polybar/l.sh ~/.config/polybar/l.sh
-    ln -s ~/.dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
-    ln -s ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
 
 
-
-
-echo "Creating system links" | cowsay
-ln -s ~/.dotfiles/.config/i3/config ~/.config/i3/config
-ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
-ln -s ~/.dotfiles/.config/tmux ~/.config/tmux
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
 
 echo "Do you want to rice? [y/n]"

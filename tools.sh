@@ -13,3 +13,10 @@ sudo pacman -S metasploit
 echo "Installing Nmap..."
 sudo pacman -S nmap net-tools
 
+
+
+echo "Web Enumeartion..."
+yay -S gobuster dirb fuff
+sudo pacman -S whatweb
+git clone https://github.com/danielmiessler/SecLists.git
+sudo mv SecLists /usr/share
