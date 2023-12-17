@@ -29,8 +29,9 @@ echo "Installing programming languages" | cowsay
 sudo pacman -S go gcc nodejs
 
 echo "Installing utils" | cowsay 
+
 # Utils
-sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop dmenu i3 fzf 
+sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop rofi i3 fzf redshift
 yay -S obsidian 
 yay -S wireguard-arch wireguard-tools
 
@@ -45,8 +46,6 @@ rice() {
 
     sudo echo FONT=JetBrainsMonoNerdFont-Bold 12 >> /etc/locale.conf
     sudo fc-cache -fv
-
 }
-
 
 reboot

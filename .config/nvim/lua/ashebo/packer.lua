@@ -8,9 +8,9 @@ return require('packer').startup(function(use)
 -- Themses
 --use 'frenzyexists/aquarium-vim'
 --use 'haishanh/night-owl.vim'
---use {'decaycs/decay.nvim', as = 'decay'}
+use {'decaycs/decay.nvim', as = 'decay'}
 
-use {"folke/tokyonight.nvim",}
+-- use {"folke/tokyonight.nvim",}
 use 'nvim-tree/nvim-web-devicons'
 
   use {
@@ -19,7 +19,7 @@ use 'nvim-tree/nvim-web-devicons'
 }
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {
