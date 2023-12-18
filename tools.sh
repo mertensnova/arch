@@ -1,4 +1,3 @@
-
 cd
 cd Desktop
 mkdir tools
@@ -24,7 +23,6 @@ sudo pacman -S exploitdb
 # Installing Nmap
 echo "Installing Nmap..."
 sudo pacman -S nmap net-tools iw
-
 
 echo "Web Enumeartion..."
 yay -S gobuster dirb fuff
