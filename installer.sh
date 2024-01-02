@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 sudo pacman -Syu
 sudo pacman -S cowsay
 sudo pacman -S wget
@@ -25,11 +26,10 @@ cd
 echo "Installing programming languages" | cowsay 
 sudo pacman -S go gcc nodejs
 
-
-
 echo "Installing utils" | cowsay 
-sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop rofi i3 fzf redshift scroot
+sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf
 yay -S obsidian wireguard-arch wireguard-tools
+
 
 echo "Installing fonts" | cowsay
 cd

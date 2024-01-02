@@ -5,10 +5,10 @@ if not present then
 end
 
 decay.setup({
-  style = 'dark',
+  style = 'decayce',
     italics = {
   code = true,
-    comments = true, -- to disable italic comments, replace to true to enable
+    comments = true -- to disable italic comments, replace to true to enable
   },
   nvim_tree = {
     contrast = true, -- or false to disable tree contrast
