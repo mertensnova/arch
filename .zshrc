@@ -38,3 +38,10 @@ export LC_ALL=en_US.UTF-8
 alias vim="nvim"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+
+alias vpn-nl="sudo systemctl restart wg-quick@nl-vpn"
+alias vpn-us="sudo systemctl restart wg-quick@us-vpn"
+
+alias down-us="sudo systemctl disable wg-quick@nl-vpn"
+alias down-nl="sudo systemctl disable wg-quick@nl-vpn"
