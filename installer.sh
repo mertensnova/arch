@@ -1,7 +1,8 @@
 #!/bin/bash
 sudo pacman -Syu
 sudo pacman -S cowsay
-sudo pacman -S wget pulseaudio unzip resolvconf
+sudo pacman -S wget pulseaudio unzip resolvconf 
+#sudo pacman -S plasma-pa 
 yay -S apple-fonts
 
 echo "Installing Dev enviroment" | cowsay 
@@ -9,8 +10,8 @@ sudo pacman -S tmux neovim  zsh neofetch
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#chsh -s $(which zsh)
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Installing libs" | cowsay 
 sudo pacman -S base-devel autoconf git
@@ -26,8 +27,8 @@ echo "Installing programming languages" | cowsay
 sudo pacman -S go gcc nodejs
 
 echo "Installing utils" | cowsay 
-sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf
-yay -S obsidian wireguard-arch wireguard-tools
+sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf i3 picom polybar rofi
+yay -S obsidian wireguard-arch wireguard-tools betterlockscreen-git
 
 echo "Installing fonts" | cowsay
 cd

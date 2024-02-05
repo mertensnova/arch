@@ -32,3 +32,4 @@ sudo mv SecLists /usr/share
 
 echo "Insatliingin wifi"
 sudo pacman -S aircrack-ng
+

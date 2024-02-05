@@ -33,19 +33,18 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 5%+
 
-bindsym Print exec scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-
 bindsym $mod+shift+x exec betterlockscreen -l dim
 
+bindsym Print exec scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -54,7 +53,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -110,7 +110,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -158,14 +157,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
@@ -185,13 +178,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
- # status_command i3status
+ #       status_command i3status
+  #      tray_output primary
 #}
-
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -201,29 +193,28 @@ bindsym $mod+a focus parent
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-exec_always ./.config/polybar/l.sh
 
+exec_always ./.config/polybar/l.sh
 smart_borders on
 default_border pixel
 
 gaps inner 5
 gaps outer 1
 
-
-exec_always setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
+#exec_always setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
 bindsym $mod+m fullscreen disable
 bindsym $mod+n fullscreen enable
 
 assign [class="alacritty"] $ws1
-assign [class="brave"] $ws2
-assign [class="obsidian"] $ws3
-assign [class="dicord"] $ws4
-assign [class="telegram"] $ws6
+assign [class="floorp"] $ws2
+assign [class="obsidian"] $ws4
+assign [class="TelegramDesktop"] $ws5
 assign [class="zoom"] $ws6
+assign [class="vlc"] $ws7
 
-exec_always feh --bg-scale /home/nyx/Pictures/wallpaper2/lost-in-space_1.jpg
+exec_always feh --bg-scale /home/mertens/Pictures/wallpaper2/lost-in-space_1.jpg
 exec_always picom -b --config ~/.config/picom/picom.conf
-exec redshift -O 3500
-#exec firefox
+exec redshift -O 4000
+exec floorp
 exec alacritty
