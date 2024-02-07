@@ -19,3 +19,7 @@ cp -r ~/.config/rofi ~/Desktop/.dotfiles/.config
 cp -r ~/.config/zathura ~/Desktop/.dotfiles/.config
 cp -r ~/.config/picom ~/Desktop/.dotfiles/.config
 cp -r ~/.config/polybar ~/Desktop/.dotfiles/.config
+
+
+rm -r ~/Pictures/wallpaper
+rm -r ~/Pictures/wallpaper2
