@@ -1,13 +1,11 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
+
+export PATH=$PATH:/usr/local/go/bin
+export MOZ_ENABLE_WAYLAND=1
 HISTCONTROL=ignoreboth
 
 shopt -s histappend
@@ -35,9 +33,6 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
 	color_prompt=yes
     else
 	color_prompt=
@@ -51,7 +46,6 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -60,13 +54,11 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -84,12 +76,15 @@ alias grep='grep --color=auto'
 
 alias turnon="redshift -O 4000"
 alias turnoff="redshift -x"
-
-alias vpn-nl="sudo systemctl restart wg-quick@nl-vpn"
-alias en-nl="sudo systemctl enable wg-quick@nl-vpn"
+alias reswifi="sudo systemctl restart NetworkManager"
+alias nn="neofetch"
+alias rr="reboot"
+alias sss="shutdown -P now"
 #alias vpn-us="sudo systemctl restart wg-quick@us-vpn"
 #alias down-us="sudo systemctl disable wg-quick@nl-vpn"
-alias down-nl="sudo systemctl disable wg-quick@nl-vpn"
+alias re-nl="sudo systemctl restart wg-quick@nl-vpn"
+alias start-nl="sudo systemctl start wg-quick@nl-vpn"
+alias stop-nl="sudo systemctl stop wg-quick@nl-vpn"
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
