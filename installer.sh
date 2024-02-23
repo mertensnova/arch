@@ -27,8 +27,8 @@ echo "Installing programming languages" | cowsay
 sudo pacman -S go gcc nodejs
 
 echo "Installing utils" | cowsay 
-sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf i3 picom polybar rofi
-yay -S obsidian wireguard-arch wireguard-tools betterlockscreen-git
+sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf
+yay -S obsidian wireguard-arch wireguard-tools
 
 echo "Installing fonts" | cowsay
 cd
@@ -38,5 +38,19 @@ unzip JetBrainsMono.zip
 sudo mv JetBrainsMono /usr/share/fonts
 sudo echo FONT=JetBrainsMonoNerdFont-Bold 12 >> /etc/locale.conf
 sudo fc-cache -fv
+
+
+x11 ()
+{
+sudo pacman -S i3 picom polybar rofi alacritty
+yay -S betterlockscreen-git
+}
+
+wayland(){
+    sudo pacman -S kitty
+    sudo pacman -S wofi waybar hyperland  hyprpaper hyprlang
+}
+
+wayland()
 
 reboot

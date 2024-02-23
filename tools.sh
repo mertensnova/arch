@@ -3,11 +3,13 @@ cd Desktop
 mkdir tools
 cd tools
 
-echo " Download and Run the BlackArch Strap Script " 
+# Run https://blackarch.org/strap.sh as root and follow the instructions.
 curl -O https://blackarch.org/strap.sh
+echo 26849980b35a42e6e192c6d9ed8c46f0d6d06047 strap.sh | sha1sum -c
 chmod +x strap.sh
 sudo ./strap.sh
-sudo pacman -Syy
+sudo pacman -Syu
+
 
 echo "Esstentials..."
 sudo pacman -S bettercap  ettercap  dnsmasq  hostapd-wpe  iptables  aireplay-ng 

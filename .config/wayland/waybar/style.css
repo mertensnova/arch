@@ -72,10 +72,10 @@ tooltip {
     margin-top: 3px;
     margin-bottom: 3px;
     margin-left: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-right: 0px;
-    color: @wb-color;
+    color: #000000;
     animation: tb_normal 20s ease-in-out 1;
 }
 
