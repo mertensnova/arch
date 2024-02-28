@@ -31,3 +31,12 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+
+vim.cmd[[set background=dark]]
+
+vim.cmd[[let g:airline_theme = 'one']]
+
+vim.cmd[[let $NVIM_TUI_ENABLE_TRUE_COLOR=1]]
+
+vim.cmd[[set termguicolors]]
