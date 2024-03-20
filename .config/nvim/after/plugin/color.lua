@@ -14,3 +14,8 @@ decay.setup({
     contrast = true, -- or false to disable tree contrast
   },
 })
+
+
+--vim.cmd[[colorscheme dracula-soft]]
+--vim.cmd 'colorscheme nightfox'
+--vim.cmd 'colorscheme monochrome'

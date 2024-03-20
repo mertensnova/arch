@@ -80,14 +80,21 @@ alias reswifi="sudo systemctl restart NetworkManager"
 alias nn="neofetch"
 alias rr="reboot"
 alias sss="shutdown -P now"
+
 #alias vpn-us="sudo systemctl restart wg-quick@us-vpn"
 #alias down-us="sudo systemctl disable wg-quick@nl-vpn"
-alias re-nl="sudo systemctl restart wg-quick@nl-vpn"
-alias start-nl="sudo systemctl start wg-quick@nl-vpn"
-alias stop-nl="sudo systemctl stop wg-quick@nl-vpn"
+# VPNS
+alias re-nl="sudo systemctl restart wg-quick@netherland"
+alias start-nl="sudo systemctl start wg-quick@netherland"
+alias stop-nl="sudo systemctl stop wg-quick@netherland"
+alias dis-nl="sudo systemctl disable wg-quick@netherland"
+alias en-nl="sudo systemctl enable wg-quick@netherland"
 
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
+alias re-us="sudo systemctl restart wg-quick@us"
+alias start-us="sudo systemctl start wg-quick@us"
+alias stop-us="sudo systemctl stop wg-quick@us"
+alias dis-us="sudo systemctl disable wg-quick@us"
+alias en-us="sudo systemctl enable wg-quick@us"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

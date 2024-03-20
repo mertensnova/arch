@@ -6,14 +6,9 @@ return require('packer').startup(function(use)
 
 -- Themses
 --use 'frenzyexists/aquarium-vim'
---use 'haishanh/night-owl.vim'
 use {'decaycs/decay.nvim', as = 'decay'}
-
-use {'kdheepak/monochrome.nvim', config = function()
-    vim.cmd 'colorscheme monochrome'
-end}
+--use "EdenEast/nightfox.nvim" -- Packer
 --use {'nyoom-engineering/oxocarbon.nvim'}
-
 -- use {"folke/tokyonight.nvim",}
 use 'nvim-tree/nvim-web-devicons'
 

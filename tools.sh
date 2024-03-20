@@ -10,7 +10,6 @@ chmod +x strap.sh
 sudo ./strap.sh
 sudo pacman -Syu
 
-
 echo "Esstentials..."
 sudo pacman -S bettercap  ettercap  dnsmasq  hostapd-wpe  iptables  aireplay-ng 
 sudo pacman -S bully  pixiewps  dhcpd  asleap  packetforge-ng  hashcat
