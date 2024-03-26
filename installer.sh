@@ -6,7 +6,7 @@ sudo pacman -S wget pulseaudio unzip resolvconf
 yay -S apple-fonts
 
 echo "Installing Dev enviroment" | cowsay 
-sudo pacman -S tmux neovim  zsh neofetch
+sudo pacman -S tmux neovim neofetch ly
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
@@ -28,7 +28,7 @@ sudo pacman -S go gcc nodejs
 
 echo "Installing utils" | cowsay 
 sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf
-yay -S obsidian wireguard-arch wireguard-tools
+yay -S  wireguard-arch wireguard-tools
 
 echo "Installing fonts" | cowsay
 cd
@@ -49,8 +49,9 @@ yay -S betterlockscreen-git
 wayland(){
     sudo pacman -S kitty
     sudo pacman -S wofi waybar hyperland  hyprpaper hyprlang
+
 }
 
 wayland()
-
-reboot
+sudo systemctl enable ly
+reboot()
