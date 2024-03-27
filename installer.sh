@@ -1,17 +1,14 @@
 #!/bin/bash
 sudo pacman -Syu
 sudo pacman -S cowsay
-sudo pacman -S wget pulseaudio unzip resolvconf 
-#sudo pacman -S plasma-pa 
+sudo pacman -S wget pulseaudio unzip resolvconf pavucontrol
+sudo pacman -S  thunar-volman gvfs gvfs-afc
 yay -S apple-fonts
 
 echo "Installing Dev enviroment" | cowsay 
 sudo pacman -S tmux neovim neofetch ly
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-#chsh -s $(which zsh)
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Installing libs" | cowsay 
 sudo pacman -S base-devel autoconf git
@@ -24,7 +21,7 @@ sudo mv yay-git /opt
 cd
 
 echo "Installing programming languages" | cowsay 
-sudo pacman -S go gcc nodejs
+sudo pacman -S go gcc nodejs cmake make
 
 echo "Installing utils" | cowsay 
 sudo pacman -S ncdu nginx-mainline docker ufw openvpn htop fzf
@@ -46,12 +43,17 @@ sudo pacman -S i3 picom polybar rofi alacritty
 yay -S betterlockscreen-git
 }
 
-wayland(){
-    sudo pacman -S kitty
-    sudo pacman -S wofi waybar hyperland  hyprpaper hyprlang
+sudo pacman -S kitty
+sudo pacman -S wofi waybar hyperland  hyprpaper hyprlang
 
-}
+cp -r ./.config/nvim ~/.config
+cp -r ./.config/tmux ~/.config
+cp -r ./.config/zaturha ~/.config
+cp -r ./.config/wayland/kitty ~/.config
+cp -r ./.config/wayland/wofi ~/.config
+cp -r ./.config/wayland/hypr ~/.config
+cp -r ./.config/wayland/waybar ~/.config
+cp -r ./wallpapers ~/Pictures
+cp -r ./wallpaper ~/Pictures
 
-wayland()
-sudo systemctl enable ly
-reboot()
+sudo systemctl enable --now  ly
