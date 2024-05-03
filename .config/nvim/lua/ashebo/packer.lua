@@ -1,5 +1,15 @@
-vim.cmd.packadd('packer.nvim')
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
+local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -10,8 +20,20 @@ use {'decaycs/decay.nvim', as = 'decay'}
 --use "EdenEast/nightfox.nvim" -- Packer
 --use {'nyoom-engineering/oxocarbon.nvim'}
 -- use {"folke/tokyonight.nvim",}
-use 'nvim-tree/nvim-web-devicons'
+--[[
+use { 
+  'olivercederborg/poimandres.nvim',
+  config = function()
+    require('poimandres').setup {
+          disable_background = true,
+      dim_nc_background = true, -- dim 'non-current' window backgrounds
+    }
+  end
+}
 
+--]]
+
+use 'nvim-tree/nvim-web-devicons'
   use {
     'christoomey/vim-tmux-navigator',
     lazy = false

@@ -1,9 +1,4 @@
 local present, decay = pcall(require, 'decay')
-
-if not present then
-  error('Can\'t import decay, make sure u installed it! :v')
-end
-
 decay.setup({
   style = 'decayce',
     italics = {
@@ -15,7 +10,10 @@ decay.setup({
   },
 })
 
-
+-- vim.cmd('colorscheme poimandres')
 --vim.cmd[[colorscheme dracula-soft]]
 --vim.cmd 'colorscheme nightfox'
 --vim.cmd 'colorscheme monochrome'
+--
+--
+--]]

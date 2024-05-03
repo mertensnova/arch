@@ -8,11 +8,12 @@
 	],
   
   "modules-center": [
+
+"clock",
   ],
 
 	"modules-right": [
 
-		"clock",
     "pulseaudio",
     "backlight",
 		"battery",

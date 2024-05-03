@@ -1,6 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = false,
+
     theme = 'decay',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},

@@ -2,7 +2,7 @@
 sudo pacman -Syu
 sudo pacman -S cowsay
 sudo pacman -S wget pulseaudio unzip resolvconf pavucontrol
-sudo pacman -S  thunar-volman gvfs gvfs-afc
+sudo pacman -S thunar-volman gvfs gvfs-afc
 yay -S apple-fonts
 
 echo "Installing Dev enviroment" | cowsay 
@@ -44,7 +44,7 @@ yay -S betterlockscreen-git
 }
 
 sudo pacman -S kitty
-sudo pacman -S wofi waybar hyperland  hyprpaper hyprlang
+sudo pacman -S wofi waybar hyperland  hyprpaper hyprlang hyprshot
 
 cp -r ./.config/nvim ~/.config
 cp -r ./.config/tmux ~/.config
