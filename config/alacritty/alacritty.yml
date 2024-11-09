@@ -45,6 +45,5 @@ colors:
     white:   '#e6e6e6'
 
 cursor:
-  style:
   shape: Underline
   blinking: On

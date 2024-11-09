@@ -1,32 +1,15 @@
 #!/usr/bin/bash
 
-rm -rf ~/Desktop/.dotfiles/.config
-rm  .bashrc .vimrc
-cd ~/Desktop/.dotfiles/
-mkdir .config
-
-
-#cp ~/.vimrc ~/Desktop/.dotfiles
-#cp ~/.zshrc ~/Desktop/.dotfiles
-cp ~/.bashrc ~/Desktop/.dotfiles
-
-# Wayland
-cp -r ~/.config/hypr ~/Desktop/.dotfiles/.config/wayland
-cp -r ~/.config/wofi ~/Desktop/.dotfiles/.config/wayland
-cp -r ~/.config/waybar ~/Desktop/.dotfiles/.config/wayland
-cp -r ~/.config/kitty ~/Desktop/.dotfiles/.config/wayland
+rm -rf ~/Desktop/arch/config
+#rm  .bashrc .vimrc
+cd ~/Desktop/arch/
 
 # X11
-cp -r ~/.config/i3 ~/Desktop/.dotfiles/.config/x11
-cp -r ~/.config/betterlockscreen ~/Desktop/.dotfiles/.config/x11
-cp -r ~/.config/rofi ~/Desktop/.dotfiles/.config/x11
-cp -r ~/.config/picom ~/Desktop/.dotfiles/.config/x11
-cp -r ~/.config/polybar ~/Desktop/.dotfiles/.config/x11
+cp -r ~/.config/i3/ ~/Desktop/arch/config
+cp -r ~/.config/i3status ~/Desktop/arch/config
+cp -r ~/.config/i3blocks ~/Desktop/arch/config
 
-cp -r ~/.config/nvim ~/Desktop/.dotfiles/.config
-cp -r ~/.config/tmux ~/Desktop/.dotfiles/.config
-cp -r ~/.config/alacritty ~/Desktop/.dotfiles/.config
-cp -r ~/.config/zathura ~/Desktop/.dotfiles/.config
+cp -r ~/.config/nvim ~/Desktop/arch/.config
+#cp -r ~/.config/tmux ~/Desktop/arch/.config
+cp -r ~/.config/alacritty ~/Desktop/arch/config
 
-rm -r ~/Pictures/wallpaper
-rm -r ~/Pictures/wallpaper2
