@@ -1,3 +1,12 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+PS1='[\u@\h \W]\$ '
+
 case $- in
     *i*) ;;
       *) return;;
@@ -15,9 +24,6 @@ HISTFILESIZE=2000
 
 shopt -s checkwinsize
 
-case $- in *i*)
-    [ -z "$TMUX" ] && exec tmux
-esac
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -39,21 +45,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -74,27 +65,10 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 
-alias turnon="redshift -O 4000"
-alias turnoff="redshift -x"
 alias reswifi="sudo systemctl restart NetworkManager"
-alias nn="neofetch"
+alias nn="fastfetch"
 alias rr="reboot"
 alias sss="shutdown -P now"
-
-#alias vpn-us="sudo systemctl restart wg-quick@us-vpn"
-#alias down-us="sudo systemctl disable wg-quick@nl-vpn"
-# VPNS
-alias re-nl="sudo systemctl restart wg-quick@netherland"
-alias start-nl="sudo systemctl start wg-quick@netherland"
-alias stop-nl="sudo systemctl stop wg-quick@netherland"
-alias dis-nl="sudo systemctl disable wg-quick@netherland"
-alias en-nl="sudo systemctl enable wg-quick@netherland"
-
-alias re-us="sudo systemctl restart wg-quick@us"
-alias start-us="sudo systemctl start wg-quick@us"
-alias stop-us="sudo systemctl stop wg-quick@us"
-alias dis-us="sudo systemctl disable wg-quick@us"
-alias en-us="sudo systemctl enable wg-quick@us"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -107,4 +81,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
