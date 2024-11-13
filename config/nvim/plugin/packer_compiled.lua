@@ -109,10 +109,10 @@ _G.packer_plugins = {
     path = "/home/mertens/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["colorbuddy.nvim"] = {
+  decay = {
     loaded = true,
-    path = "/home/mertens/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
-    url = "https://github.com/tjdevries/colorbuddy.nvim"
+    path = "/home/mertens/.local/share/nvim/site/pack/packer/start/decay",
+    url = "https://github.com/decaycs/decay.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,

@@ -15,8 +15,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
 -- Themses
---use {'decaycs/decay.nvim', as = 'decay'}
-use "tjdevries/colorbuddy.nvim"
+use {'decaycs/decay.nvim', as = 'decay'}
+--use "tjdevries/colorbuddy.nvim"
 
 use 'nvim-tree/nvim-web-devicons'
   use {

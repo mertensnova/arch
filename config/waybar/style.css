@@ -7,7 +7,7 @@
 
 #custom-notification {
   font-family: "JetBrains Mono Nerd Font";
-  font-size: 18px;
+  font-size: 16px;
  color: #cccedb;
  margin-left: -2px;
  margin-top: -4px ;
@@ -15,11 +15,11 @@
 }
 
 window#waybar {
-    background: rgba(21, 21, 21, 0.83); 
+    background: rgba(8, 7, 8, 1); 
   /*  border-radius: 15px; */
  /*  border: 2px solid #124323; */
 /* border: 0px solid #A1BDCE; */
- border: 3px solid rgba(255, 255, 255, 0.3);
+ border: 3px solid rgba(230, 232, 230, 1);
  border-radius: 6px;
 }
 
@@ -68,7 +68,7 @@ background: rgba(23, 23, 23, 0.0);
 
  
   /* background-image: url("/home/anik/Documents/bar1.png");*/
-    color: #cccedb;   
+   /* color: #cccedb;*/   
     font-weight: normal;
     transition: all 0.3s ease;
       padding-left: 0px;
@@ -78,7 +78,7 @@ background: rgba(23, 23, 23, 0.0);
 
 #workspaces button:hover {
     background: none;
-    color: #7DAEA3;
+    /*color: #7DAEA3;*/
     font-weight: normal;
     animation: ws_hover 20s ease-in-out 1;
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
