@@ -1,15 +1,26 @@
 #!/usr/bin/bash
 
-rm -rf ~/Desktop/arch/config
-#rm  .bashrc .vimrc
-cd ~/Desktop/arch/
 
-# X11
-cp -r ~/.config/i3/ ~/Desktop/arch/config
-cp -r ~/.config/i3status ~/Desktop/arch/config
-cp -r ~/.config/i3blocks ~/Desktop/arch/config
 
-cp -r ~/.config/nvim ~/Desktop/arch/.config
-#cp -r ~/.config/tmux ~/Desktop/arch/.config
-cp -r ~/.config/alacritty ~/Desktop/arch/config
+# Remove old configuration directories if they exist
+for dir in nvim alacritty waybar hypr; do
+  if [ -d ~/Desktop/Projects/arch/config/$dir ]; then
+    echo "Removing existing $dir config..."
+    rm -rf ~/Desktop/Projects/arch/config/$dir
+  else
+    echo "$dir config does not exist on Desktop/arch/config/"
+  fi
+done
+
+# Copy current configurations to the Desktop/arch/config directory
+for dir in nvim alacritty waybar hypr; do
+  if [ -d ~/.config/$dir ]; then
+    echo "Copying $dir config to Desktop/arch/config..."
+    cp -r ~/.config/$dir ~/Desktop/Projects/arch/config/
+  else
+    echo "$dir config does not exist in ~/.config/"
+  fi
+done
+
+echo "Configuration sync complete."
 
