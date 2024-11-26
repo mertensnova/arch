@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 
-
-
 # Remove old configuration directories if they exist
 for dir in nvim alacritty waybar hypr; do
   if [ -d ~/Desktop/Projects/arch/config/$dir ]; then

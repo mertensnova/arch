@@ -1,5 +1,5 @@
 local lsp = require("lsp-zero")
-
+require("lsp_lines").setup()
 lsp.preset("recommended")
 
 lsp.ensure_installed({
@@ -63,6 +63,13 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = false
 })
+vim.diagnostic.config({ virtual_lines = true })
+vim.keymap.set(
+  "",
+  "<leader>l",
+  require("lsp_lines").toggle,
+  { desc = "Toggle lsp_lines" }
+)
 

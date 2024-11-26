@@ -28,6 +28,6 @@ sudo pacman -S ncdu nginx-mainline ufw openvpn btop fzf
 yay -S  wireguard-arch wireguard-tools
 
 sudo pacman -S kitty
-sudo pacman -S wofi waybar hyperland hyprpaper hyprshot
+sudo pacman -S waybar hyperland hyprpaper hyprshot
 
 sudo systemctl enable --now ly

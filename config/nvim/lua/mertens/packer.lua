@@ -11,12 +11,20 @@ end
 
 local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
 -- Themses
-use {'decaycs/decay.nvim', as = 'decay'}
---use "tjdevries/colorbuddy.nvim"
+--use {'decaycs/decay.nvim', as = 'decay'}
+--use {'nyoom-engineering/oxocarbon.nvim'}
+use "tjdevries/colorbuddy.nvim"
+
+use {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+        require("nvim-autopairs").setup {}
+    end
+}
 
 use 'nvim-tree/nvim-web-devicons'
   use {
@@ -79,4 +87,10 @@ use 'nvim-tree/nvim-web-devicons'
   use("folke/zen-mode.nvim")
   use("eandrju/cellular-automaton.nvim")
 
+use({
+  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  config = function()
+    require("lsp_lines").setup()
+  end,
+})
   end)

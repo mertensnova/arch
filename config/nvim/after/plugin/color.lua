@@ -1,31 +1,31 @@
+require("colorbuddy").colorscheme('gruvbuddy')
 
-vim.opt.background = "dark" -- set this to dark or light
 
---vim.cmd.colorscheme("colorbuddy")
--- or
---vim.cmd.colorscheme("gruvbuddy")
---
---
-local decay = require("decay")
+local colorbuddy = require('colorbuddy')
+local Color = colorbuddy.Color
+local Group = colorbuddy.Group
+local c = colorbuddy.colors
+local g = colorbuddy.groups
+local s = colorbuddy.styles
 
-local opt = vim.opt
-local cmd = vim.cmd
+Color.new('red', '#cc6666')
+Color.new('superwhite', '#ffffff')
+Color.new('pink', '#fef601')
+Color.new('green', '#99cc99')
+Color.new('yellow', '#ffd60a')
+Color.new('blue', '#81a2be')
+Color.new('aqua', '#8ec07c')
+Color.new('cyan', '#8abeb7')
+Color.new('purple', '#c77dff')
+Color.new('violet', '#b294bb')
+Color.new('orange', '#de935f')
+Color.new('brown', '#a3685a')
 
---opt.background = "light"
+Color.new('seagreen', '#698b69')
+Color.new('turquoise', '#698b69')
 
-decay.setup({
-  style = "decayce",
+local background_string = "#000000"
+Color.new("background", background_string)
+Color.new("gray0", background_string)
 
-  -- enables italics in code keywords & comments.
-  italics = {
-    code = true,
-    comments = true,
-  },
 
-  -- enables contrast when using nvim tree.
-  nvim_tree = {
-    contrast = true
-  },
-})
-
-cmd.colorscheme "decayce"
