@@ -1,0 +1,30 @@
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+background = 000000 
+foreground = ffffff
+
+# Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
+keybind = ctrl+z=close_surface
+keybind = ctrl+d=new_split:right
+
+# Empty values reset the configuration to the default value
+font-family = JetBrainsMono Nerd Font
+font-family-bold = JetBrainsMono Nerd Font
+gtk-adwaita = false
+window-decoration = false
+gtk-titlebar = false
+font-size = 11.6
+font-style = bold
+cursor-style = block_hollow
+shell-integration-features = no-cursor
+wait-after-command = false
+window-theme = dark
+copy-on-select = true
+
+auto-update = download
+
+bold-is-bright = true
+
+confirm-close-surface = false
